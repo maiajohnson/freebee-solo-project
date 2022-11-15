@@ -58,7 +58,7 @@ function RegisterForm() {
           Phone #:
           <input
             type="number"
-            name="phoneNum"
+            name="phone_num"
             value={phoneNum}
             required
             onChange={(event) => setPhoneNum(event.target.value)}
