@@ -1,6 +1,7 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import NewTrialPage from "../NewTrialPage/NewTrialPage";
+import TrialList from '../TrialList/TrialList';
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -9,7 +10,8 @@ function UserPage() {
   return (
     <div className="container">
       <h2 className='welcome-banner'>WELCOME {user.username}!</h2>
-      <NewTrialPage className="menu-btns" />
+      <NewTrialPage />
+      <TrialList />
       <LogOutButton className="btn" />
     </div>
   );

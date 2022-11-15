@@ -191,7 +191,11 @@ Main Page
 }
 
 .main-btns {
-  margin-left: 80px;
+  text-align: center;
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  margin: 10px auto;
   background-color: #FCEA4A;
   padding: 15px 50px;
   font-family: "Lucida Console", Courier, monospace;
