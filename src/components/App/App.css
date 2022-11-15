@@ -189,3 +189,10 @@ Main Page
 .welcome-banner {
   text-align: center;
 }
+
+.main-btns {
+  margin-left: 80px;
+  background-color: #FCEA4A;
+  padding: 15px 50px;
+  font-family: "Lucida Console", Courier, monospace;
+}
