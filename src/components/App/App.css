@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Lucida Console", Courier, monospace;
   margin: 0px;
   background-color: #FCEA4A;
 }
@@ -21,6 +21,7 @@ Container
 
 .container {
   padding: 20px;
+  background-color: #FFF9C1;
 }
 
 /* --------------------------------------------------------------------------------
@@ -179,4 +180,12 @@ input {
 .register-text {
   text-align: center;
   margin-top: 0px;
+}
+
+/* -------------------------------------------------------------------
+Main Page
+--------------------------------------------------------------------*/
+
+.welcome-banner {
+  text-align: center;
 }
