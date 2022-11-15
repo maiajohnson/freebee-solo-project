@@ -2,6 +2,7 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import NewTrialPage from "../NewTrialPage/NewTrialPage";
 import TrialList from '../TrialList/TrialList';
+import History from '../History/History';
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -12,6 +13,7 @@ function UserPage() {
       <h2 className='welcome-banner'>WELCOME {user.username}!</h2>
       <NewTrialPage />
       <TrialList />
+      <History />
       <LogOutButton className="btn" />
     </div>
   );
