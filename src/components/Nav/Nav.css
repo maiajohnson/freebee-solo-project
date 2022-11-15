@@ -5,22 +5,13 @@
   align-items: center;
 
   margin: 0 0 30px;
-  padding: 0 0 10px 0;
+  padding: 0 0 20px 0;
   background-color: #FCEA4A;
   overflow: hidden;
 }
 
 .nav a {
   text-decoration: none;
-}
-
-.nav-title {
-  font-size: 30px;
-  font-weight: 100;
-  color: black;
-  padding-left: 60px;
-  margin: 0;
-  text-align: center;
 }
 
 .navLink {
@@ -41,4 +32,14 @@
 
 .navLink:hover {
   background-color: #FCEA4A;
+}
+
+
+.nav-title {
+  font-size: 60px;
+  font-weight:300;
+  color: black;
+  padding-top: 20px;
+  margin: 0;
+  text-align: center;
 }
