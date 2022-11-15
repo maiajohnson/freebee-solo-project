@@ -22,8 +22,8 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+    <form className="reg-formPanel" onSubmit={registerUser}>
+      <h2 className='register-text'>Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -31,10 +31,11 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
           <input
+            className='reg-username'
             type="text"
             name="username"
+            placeholder='Username'
             value={username}
             required
             onChange={(event) => setUsername(event.target.value)}
@@ -43,10 +44,11 @@ function RegisterForm() {
       </div>
       <div>
         <label htmlFor="password">
-          Password:
           <input
+            className="reg-password"
             type="password"
             name="password"
+            placeholder="Password"
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
@@ -55,10 +57,11 @@ function RegisterForm() {
       </div>
       <div>
       <label htmlFor="phoneNum">
-          Phone #:
           <input
+            className='phoneNum'
             type="number"
             name="phone_num"
+            placeholder='Phone Number'
             value={phoneNum}
             required
             onChange={(event) => setPhoneNum(event.target.value)}
@@ -66,7 +69,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="reg-btn" type="submit" name="submit" value="Register" />
       </div>
     </form>
   );
