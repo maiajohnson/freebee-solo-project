@@ -1,8 +1,6 @@
 function History() {
     return (
-      <button className="main-btns">
-        HISTORY
-      </button>
+      <h1>Past trials go here</h1>
     )
 }
 

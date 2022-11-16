@@ -1,8 +1,6 @@
 function TrialList() {
     return (
-      <button className="main-btns">
-        TRIAL LIST
-      </button>
+     <h1>Trial List goes here</h1>
     )
 }
 

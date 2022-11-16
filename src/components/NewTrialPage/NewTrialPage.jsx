@@ -1,9 +1,7 @@
 function NewTrialPage() {
-    return (
-      <button className="main-btns">
-        NEW TRIAL
-      </button>
-    )
+  return (
+    <h1>New trial form goes here</h1>
+  )
 }
 
 export default NewTrialPage;
