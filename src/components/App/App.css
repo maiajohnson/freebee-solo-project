@@ -200,3 +200,13 @@ Main Page
   padding: 15px 50px;
   font-family: "Lucida Console", Courier, monospace;
 }
+
+/* -------------------------------------------------------------------
+Trial List Page
+--------------------------------------------------------------------*/
+
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}

@@ -15,8 +15,8 @@ function TrialList() {
 
 
     return (
-     <div>
-      <table className="container">
+     <div className="container">
+      <table className="trial-table">
         {trialList.map(trial => (
           <tbody  key={trial.name}>
             <tr>

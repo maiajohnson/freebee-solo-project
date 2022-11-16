@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from '../Footer/Footer';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
@@ -21,6 +21,8 @@ function RegisterPage() {
           Login
         </button>
       </center>
+
+      <Footer />
     </div>
   );
 }

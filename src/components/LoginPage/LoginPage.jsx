@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function LoginPage() {
   const history = useHistory();
@@ -20,6 +21,8 @@ function LoginPage() {
           Register
         </button>
       </center>
+
+      <Footer />
     </div>
   );
 }
