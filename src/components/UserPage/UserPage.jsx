@@ -15,7 +15,7 @@ function UserPage() {
       <Link to="/addtrial">
         <button className='main-btns'>NEW TRIAL</button>
       </Link>
-      <Link to="/triallist">
+      <Link to="/trials">
         <button className='main-btns'>TRIAL LIST</button>
       </Link>
       <Link to="/history">
