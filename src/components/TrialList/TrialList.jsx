@@ -14,13 +14,16 @@ function TrialList() {
 
     return (
      <div>
-      <ul>
+      <table className="container">
         {trialList.map(trial => (
-          <>
-            <li key={trial.id}>{trial.name}</li>
-          </>
+          <tbody  key={trial.name}>
+            <tr>
+              <td >{trial.name}</td>
+              <td>{trial.cost}</td>
+            </tr>
+          </tbody>
         ))}
-      </ul>
+      </table>
      </div>
     )
 }
