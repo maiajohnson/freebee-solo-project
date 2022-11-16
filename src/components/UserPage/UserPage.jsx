@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 // import NewTrialPage from "../NewTrialPage/NewTrialPage";
-// import TrialList from '../TrialList/TrialList';
+import TrialList from '../TrialList/TrialList';
 // import History from '../History/History';
 import {useSelector} from 'react-redux';
 

@@ -19,6 +19,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import TrialList from '../TrialList/TrialList';
 
 function App() {
   const dispatch = useDispatch();
@@ -99,17 +100,12 @@ function App() {
             }
           </Route>
 
-          <Route
+          <ProtectedRoute
             exact
             path="/trials"
           >
-            {user.id ?
-              
-              <Redirect to="/trials" />
-              :
-              <LoginPage />
-          }
-          </Route>
+              <TrialList />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
