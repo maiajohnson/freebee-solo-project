@@ -220,8 +220,21 @@ Main Page
 Trial List Page
 --------------------------------------------------------------------*/
 
-table, td {
+table, tr {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+td {
+  padding: 10px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FCEA4A;
+  font-family: "Lucida Console", Courier, monospace;
 }

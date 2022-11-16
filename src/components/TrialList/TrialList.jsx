@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import dateFormat from "dateformat";
+import { Link } from 'react-router-dom';
 
 function TrialList() {
   const dispatch = useDispatch();
@@ -20,16 +21,35 @@ function TrialList() {
         {trialList.map(trial => (
           <tbody  key={trial.name}>
             <tr>
-              <th>{trial.name}</th>
+              <th>Trial: {trial.name}</th>
             </tr>
             <tr>
-              <td>{trial.cost}</td>
-              <td>{dateFormat(trial.expiration_date, "mm/dd/yy")}</td>
-              <td>{trial.username}</td>
+              <td>Cost: {trial.cost}</td>
+            </tr>
+            <tr>
+              <td>End Date: {dateFormat(trial.expiration_date, "mm/dd/yy")}</td>
+              </tr>
+              <tr>
+              <td>Username: {trial.username}</td>
+              </tr>
+              <tr>
+              <td>
+                <button>EDIT</button>
+              </td>
+              </tr>
+              <tr>
+              <td>
+                <button>DELETE</button>
+              </td>
             </tr>
           </tbody>
         ))}
       </table>
+      <footer>
+        <Link to="/user">
+          <button className="back-btn">Back To Main Menu</button>
+        </Link>
+      </footer>
      </div>
     )
 }
