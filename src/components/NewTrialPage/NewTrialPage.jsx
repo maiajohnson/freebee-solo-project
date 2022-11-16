@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
+import { Link } from "react-router-dom";
 
 function NewTrialPage() {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ function NewTrialPage() {
     <div>
     <h1>Add Trial</h1>
 
-    <form className="new-trial" onSubmit={handleSubmit}>
+    <form className="container" onSubmit={handleSubmit}>
 
     <input
       onChange={addName}
@@ -96,6 +97,10 @@ function NewTrialPage() {
 
     <button type="submit">Submit</button>
     </form>
+
+    <Link to="/user" >
+      <button className="back-btn-newtrial">Back To Main Menu</button>
+    </Link>
     </div>
   )
 }

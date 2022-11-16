@@ -238,3 +238,14 @@ td {
   background-color: #FCEA4A;
   font-family: "Lucida Console", Courier, monospace;
 }
+
+/* -------------------------------------------------------------------
+New Trial Page
+--------------------------------------------------------------------*/
+
+.back-btn-newtrial {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FFF9C1;
+  font-family: "Lucida Console", Courier, monospace;
+}
