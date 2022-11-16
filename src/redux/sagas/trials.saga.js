@@ -16,8 +16,18 @@ function* fetchTrials() {
     }
 }
 
+function* addTrial(action) {
+    try {
+        yield axios.post('/api/trials', {data: action.payload})
+        yield put({ type: 'FETCH_TRIALS' })
+    } catch (err){
+        console.log('post failed', err);
+    }
+}
+
 function* trialsSaga() {
     yield takeLatest('FETCH_TRIALS', fetchTrials);
+    yield takeLatest("ADD_TRIAL", addTrial);
 }
 
 export default trialsSaga;

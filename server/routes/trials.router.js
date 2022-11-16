@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/addtrial', rejectUnauthenticated, (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // POST new trial code here
   console.log(req.body);
 
