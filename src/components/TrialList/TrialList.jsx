@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
+import dateFormat from "dateformat";
 
 function TrialList() {
   const dispatch = useDispatch();
@@ -12,14 +13,19 @@ function TrialList() {
     })
   }, []);
 
+
     return (
      <div>
       <table className="container">
         {trialList.map(trial => (
           <tbody  key={trial.name}>
             <tr>
-              <td >{trial.name}</td>
+              <th>{trial.name}</th>
+            </tr>
+            <tr>
               <td>{trial.cost}</td>
+              <td>{dateFormat(trial.expiration_date, "mm/dd/yy")}</td>
+              <td>{trial.username}</td>
             </tr>
           </tbody>
         ))}
