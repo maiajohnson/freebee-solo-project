@@ -83,7 +83,7 @@ Button
   border-color: black;
   padding: 10px 26px;
   border-width: 1px 1px 3px;
-  margin-left: 5px;
+  margin-left: 15px;
   border-radius: 20px;
   background-color: #FFF9C1;
   font: inherit;
@@ -199,6 +199,21 @@ Main Page
   background-color: #FCEA4A;
   padding: 15px 50px;
   font-family: "Lucida Console", Courier, monospace;
+}
+
+
+.logout-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  border-color: black;
+  border-width: 1px 1px 3px;
+  border-radius: 20px;
+  background-color: black;
+  color: #f8f8f8;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+  margin-left: 105px;
 }
 
 /* -------------------------------------------------------------------

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 // import NewTrialPage from "../NewTrialPage/NewTrialPage";
-import TrialList from '../TrialList/TrialList';
+import Footer from '../Footer/Footer';
 // import History from '../History/History';
 import {useSelector} from 'react-redux';
 
@@ -22,9 +22,9 @@ function UserPage() {
         <button className='main-btns'>HISTORY</button>
       </Link>
       {/* <NewTrialPage />
-      <TrialList />
       <History /> */}
-      <LogOutButton className="btn" />
+      <LogOutButton className="logout-btn" />
+      <Footer />
     </div>
   );
 }
