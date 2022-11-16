@@ -25,9 +25,20 @@ function* addTrial(action) {
     }
 }
 
+function* deleteTrial(action) {
+    console.log('the action payload of delete item is', action.payload)
+    try {
+        yield axios.delete(`/api/trials/${action.payload}`);
+        yield put({ type: 'FETCH_TRIALS' })
+    } catch (err) {
+        console.log("error deleting item", err);
+    }
+}
+
 function* trialsSaga() {
     yield takeLatest('FETCH_TRIALS', fetchTrials);
     yield takeLatest("ADD_TRIAL", addTrial);
+    yield takeLatest("DELETE_TRIAL", deleteTrial);
 }
 
 export default trialsSaga;

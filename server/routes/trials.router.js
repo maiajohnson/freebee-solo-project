@@ -52,4 +52,23 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 });
 
+// PUT route
+
+
+// DELETE route
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('the user id is currently', req.user.id);
+
+  const sqlText = `DELETE FROM "trial_list" WHERE "id" = $1 AND "user_id" = $2;`
+  const sqlParams = [req.params.id, req.user.id]
+  
+  pool.query(sqlText, sqlParams)
+    .then((dbRes) => {
+      res.send(200);
+    })
+    .catch((err) => {
+      console.log('error deleting trial', err);
+    })
+});
+
 module.exports = router;

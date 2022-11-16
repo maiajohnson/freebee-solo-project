@@ -14,9 +14,17 @@ function TrialList() {
     })
   }, []);
 
+  const deleteTrial = (id) => {
+    console.log('in delete item function onclick')
+    dispatch({
+      type: "DELETE_TRIAL",
+      payload: id,
+    })
+  }
 
     return (
      <div className="container">
+      <h1>Trial List</h1>
       <table className="trial-table">
         {trialList.map(trial => (
           <tbody  key={trial.name}>
@@ -39,7 +47,7 @@ function TrialList() {
               </tr>
               <tr>
               <td>
-                <button>DELETE</button>
+                <button onClick={() => deleteTrial(trial.id)}>DELETE</button>
               </td>
             </tr>
           </tbody>
