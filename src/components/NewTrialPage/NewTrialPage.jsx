@@ -15,8 +15,6 @@ function NewTrialPage() {
   })
 
   function changeWeek(evt) {
-    //evt.preventDefault();
-
     setNewTrial({
       ...newTrial,
       one_week_before: !newTrial.one_week_before
@@ -25,7 +23,6 @@ function NewTrialPage() {
   }
 
   function changeThreeDays(evt) {
- 
     setNewTrial({
       ...newTrial,
       three_days_before: !newTrial.three_days_before
@@ -34,7 +31,6 @@ function NewTrialPage() {
   }
 
   function changeDayBefore(evt) {
-   
     setNewTrial({
       ...newTrial,
       one_day_before: !newTrial.one_day_before
