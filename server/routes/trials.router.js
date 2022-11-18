@@ -25,19 +25,22 @@ router.get('/', (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
   // POST new trial code here
-  console.log(req.body);
+  console.log('this is the db info', req.body);
 
   const sqlText = `INSERT INTO "trial_list"
-                    ("name", "cost", "expiration_date", "username", "user_id")
+                    ("name", "cost", "expiration_date", "username", "user_id", "one_week_before", "three_days_before", "one_day_before")
                   VALUES
-                    ($1, $2, $3, $4, $5);`;
+                    ($1, $2, $3, $4, $5, $6, $7, $8);`;
 
   const sqlParams = [
     req.body.data.name,
     req.body.data.cost,
     req.body.data.expiration_date,
     req.body.data.username,
-    req.user.id
+    req.user.id,
+    req.body.data.one_week_before,
+    req.body.data.three_days_before,
+    req.body.data.one_day_before
   ]
   console.log('sql params are: ', sqlParams);
 

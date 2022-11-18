@@ -16,9 +16,8 @@ CREATE TABLE "trial_list" (
     "cost" INT,
     "expiration_date" DATE,
     "username" VARCHAR (255),
-    "user_id" INT,
-    CONSTRAINT fk_"user"
-        FOREIGN KEY("user_id")
-            REFERENCES "user"("id")
-            ON DELETE SET NULL
+    "user_id" INT REFERENCES "user"("id"),
+    "one_week_before" BOOLEAN DEFAULT FALSE,
+    "three_days_before" BOOLEAN DEFAULT FALSE,
+    "one_day_before" BOOLEAN DEFAULT FALSE
 );

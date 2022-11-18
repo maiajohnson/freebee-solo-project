@@ -9,7 +9,38 @@ function NewTrialPage() {
     cost: 0,
     expiration_date: new Date(),
     username: "",
+    one_week_before: false,
+    three_days_before: false,
+    one_day_before: false,
   })
+
+  const [alertWeek, setAlertWeek] = useState(false);
+
+  function changeWeek(evt) {
+    evt.preventDefault();
+    setNewTrial({
+      ...newTrial,
+      setAlertWeek
+    })
+    setAlertWeek((alertWeek) => !alertWeek);
+    console.log(alertWeek);
+  }
+
+  function changeThreeDays(evt) {
+    evt.preventDefault();
+    setNewTrial({
+      ...newTrial,
+      three_days_before: true,
+    })
+  }
+
+  function changeDayBefore(evt) {
+    evt.preventDefault();
+    setNewTrial({
+      ...newTrial,
+      one_day_before: true,
+    })
+  }
 
   function addName(evt) {
     evt.preventDefault();
@@ -43,6 +74,8 @@ function NewTrialPage() {
     });
   }
 
+
+
   function handleSubmit(evt) {
     evt.preventDefault();
 
@@ -67,11 +100,16 @@ function NewTrialPage() {
       onChange={addCost}
       placeholder="Cost"
       type="text" />
-
+    
+    <div>
+    <label>
+      End Date:
+    </label>
     <input
       onChange={addEndDate}
       placeholder="End Date"
       type="date" />
+    </div>
 
     <input
       onChange={addUsername}
@@ -82,17 +120,17 @@ function NewTrialPage() {
       Alerts:
     </label>
 
-    <div className="alerts-radio">
-      <input type="radio" name="alert" id="week"  />
-      <label htmlFor="week"><b>1 Week Before</b></label>
+    <div className="alerts-check">
+      <input type="checkbox" name="alert" id="week" onChange={changeWeek} />
+      <label htmlFor="1weekbefore"><b>1 Week Before</b></label>
     </div>
-    <div className="alerts-radio">
-      <input type="radio" name="alert" id="3days"  />
-      <label htmlFor="3days"><b>3 Days Before</b></label>
+    <div className="alerts-check">
+      <input type="checkbox" name="alert" id="3days" onChange={changeThreeDays} />
+      <label htmlFor="3daysbefore"><b>3 Days Before</b></label>
     </div>
-    <div className="alerts-radio">
-      <input type="radio" name="alert" id="day"  />
-      <label htmlFor="day"><b>1 Day Before</b></label>
+    <div className="alerts-check">
+      <input type="checkbox" name="alert" id="1day" onChange={changeDayBefore} />
+      <label htmlFor="1daybefore"><b>1 Day Before</b></label>
     </div>
 
     <button type="submit">Submit</button>
