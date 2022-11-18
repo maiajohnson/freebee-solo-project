@@ -42,7 +42,9 @@ function TrialList() {
               </tr>
               <tr>
               <td>
-                <button>EDIT</button>
+                <Link to={`/trials/${trial.id}/edit`}>
+                  <button>EDIT</button>
+                </Link>
               </td>
               </tr>
               <tr>
