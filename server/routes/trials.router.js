@@ -143,7 +143,7 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'This is an alert',
+     body: 'This is a third alert',
      from: '+15139514646',
      to: '+19528184985'
    })
