@@ -65,16 +65,43 @@ router.get('/:id', (req, res) => {
   `;
   const sqlParams = [id]; // $1 = req.params.id
 
+  console.log(sqlParams);
   pool.query(sqlText, sqlParams)
     .then((dbRes) => {
-      res.send(dbRes.rows);
+      res.send(dbRes.rows[0]);
     })
     .catch((err) => {
       console.log(`Error making db query ${sqlText}`, err);
     });
 })
 // PUT route
+router.put('/:id', (req, res) => {
+  const sqlText = `
+    UPDATE "trial_list"
+    SET "name" = $1, "cost" = $2, "expiration_date" = $3, "username" = $4, "one_week_before" = $5, "three_days_before" = $6, "one_day_before" = $7
+    WHERE id = $8`;
 
+    const sqlParams = [
+      req.body.name,
+      req.body.cost,
+      req.body.expiration_date,
+      req.body.username,
+      req.body.one_week_before,
+      req.body.three_days_before,
+      req.body.one_day_before,
+      req.params.id
+    ]
+
+    console.log(sqlText, sqlParams);
+    pool.query(sqlText, sqlParams)
+      .then((dbRes) => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.log(`Error making database query ${sqlText}`, err);
+        res.sendStatus(500);
+      })
+})
 
 // DELETE route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {

@@ -36,15 +36,22 @@ function* deleteTrial(action) {
 }
 
 function* fetchEditTrial(action) {
+   
     try {
-        const response = yield axios.get(`/trials/${action.payload}`);
+        const response = yield axios.get(`/api/trials/${action.payload}`);
 
         yield put({
             type: "SET_EDIT_TRIAL",
             payload: response.data
         });
     } catch (err) {
-        console.error(err);
+        console.error('get editing trial error', err);
+    }
+}
+
+function* saveTrial(action) {
+    if (action.payload.id) {
+        yield axios.put(`/api/trials/${action.payload.id}`, action.payload);
     }
 }
 
@@ -53,6 +60,7 @@ function* trialsSaga() {
     yield takeLatest("ADD_TRIAL", addTrial);
     yield takeLatest("DELETE_TRIAL", deleteTrial);
     yield takeLatest("FETCH_EDIT_TRIAL", fetchEditTrial);
+    yield takeLatest("SAVE_TRIAL", saveTrial);
 }
 
 export default trialsSaga;
