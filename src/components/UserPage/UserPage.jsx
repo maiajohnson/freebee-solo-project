@@ -9,11 +9,12 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   console.log(user);
 
-  // useEffect(() => {
-  //   dispatch({
-  //     type: "ADD_TEXT",
-  //   })
-  // }, []);
+  useEffect(() => {
+    dispatch({
+      type: "ADD_TEXT",
+      // payload: message.body
+    })
+  }, []);
 
   return (
     <div className="container">

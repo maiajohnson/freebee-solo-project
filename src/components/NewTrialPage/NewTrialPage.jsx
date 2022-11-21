@@ -87,17 +87,27 @@ function NewTrialPage() {
     <div>
     <h1>Add Trial</h1>
 
-    <form className="container" onSubmit={handleSubmit}>
+    <form className="container-addtrial" onSubmit={handleSubmit}>
 
+    <div>
+    <label>
+      Trial Name:
+    </label>
     <input
       onChange={addName}
       placeholder="Trial Name"
       type="text" />
+    </div>
 
+    <div>
+    <label>
+      Cost:
+    </label>
     <input
       onChange={addCost}
       placeholder="Cost"
       type="text" />
+    </div>
     
     <div>
     <label>
@@ -109,11 +119,17 @@ function NewTrialPage() {
       type="date" />
     </div>
 
+    <div>
+    <label>
+      Username:
+    </label>
     <input
       onChange={addUsername}
       placeholder="Username"
       type="text" />
+    </div>
 
+    <div>
     <label>
       Alerts:
     </label>
@@ -130,9 +146,14 @@ function NewTrialPage() {
       <input type="checkbox" label="1 Day Before" checked={newTrial.one_day_before} onChange={changeDayBefore} />
       <label htmlFor="1daybefore"><b>1 Day Before</b></label>
     </div>
+    </div>
 
-    <button type="submit">Submit</button>
+    <button className="back-btn" type="submit">Submit</button>
     </form>
+
+    <Link to="/user">
+      <button className="back-btn-newtrial">Back To Main Menu</button>
+    </Link>
     </div>
   )
 }

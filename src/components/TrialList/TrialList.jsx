@@ -24,7 +24,7 @@ function TrialList() {
 
     return (
      <div className="container">
-      <h1>Trial List</h1>
+      <h1 className="trial-title">Trial List</h1>
       <table className="trial-table">
         {trialList.map(trial => (
           <tbody  key={trial.name}>
@@ -36,20 +36,18 @@ function TrialList() {
             </tr>
             <tr>
               <td>End Date: {dateFormat(trial.expiration_date, "mm/dd/yy")}</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
               <td>Username: {trial.username}</td>
               </tr>
               <tr>
               <td>
                 <Link to={`/trials/${trial.id}/edit`}>
-                  <button>EDIT</button>
+                  <button className="edit-btn">EDIT</button>
                 </Link>
               </td>
-              </tr>
-              <tr>
               <td>
-                <button onClick={() => deleteTrial(trial.id)}>DELETE</button>
+                <button className="del-btn" onClick={() => deleteTrial(trial.id)}>DELETE</button>
               </td>
             </tr>
           </tbody>

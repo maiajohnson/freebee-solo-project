@@ -55,25 +55,26 @@ function* saveTrial(action) {
     }
 }
 
-// function* addTexts(action) {
+function* addTexts(action) {
 
-//     try {
-//         yield axios.post('/api/trials/sms', {data: action.payload})
+    try {
+        yield axios.post('/api/trials/sms', {data: action.payload})
 
-//         yield put({
-//             type: "FETCH_TEXTS",
-//         })
-//     } catch (err) {
-//         console.log('error getting texts', err);
-//     }
-// }
+        yield put({
+            type: "FETCH_TEXTS",
+        })
+    } catch (err) {
+        console.log('error getting texts', err);
+    }
+}
+
 function* trialsSaga() {
     yield takeLatest('FETCH_TRIALS', fetchTrials);
     yield takeLatest("ADD_TRIAL", addTrial);
     yield takeLatest("DELETE_TRIAL", deleteTrial);
     yield takeLatest("FETCH_EDIT_TRIAL", fetchEditTrial);
     yield takeLatest("SAVE_TRIAL", saveTrial);
-    // yield takeLatest("ADD_TEXTS", addTexts);
+    yield takeLatest("ADD_TEXTS", addTexts);
 }
 
 export default trialsSaga;
