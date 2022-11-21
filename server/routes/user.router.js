@@ -40,21 +40,6 @@ router.post('/register', (req, res, next) => {
 // this middleware will send a 404 if not successful
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
-  const username = req.body.username;
-  const phoneNum = req.body.phoneNum;
-
-  const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  const authToken = process.env.TWILIO_AUTH_TOKEN;
-  const client = require('twilio')(accountSid, authToken);
-
-  client.messages
-    .create({
-      body: `${username} loves getting alerts!!`,
-      from: '+15139514646',
-      to: `+${phoneNum}`
-    })
-    .then(message => console.log(message.sid));
-
 });
 
 // clear all server session information about this user

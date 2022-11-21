@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Footer from '../Footer/Footer';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  console.log(user);
+
+  useEffect(() => {
+    dispatch({
+      type: "ADD_TEXT",
+    })
+  }, []);
+
   return (
     <div className="container">
       <h2 className='welcome-banner'>WELCOME {user.username}!</h2>
