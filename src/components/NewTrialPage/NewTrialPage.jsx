@@ -1,9 +1,10 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function NewTrialPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [newTrial, setNewTrial] = useState({
     name: "",
     cost: 0,
@@ -79,6 +80,7 @@ function NewTrialPage() {
       type: "ADD_TRIAL",
       payload: newTrial
     })
+    history.push('/trials');
   }
 
   return (
@@ -131,10 +133,6 @@ function NewTrialPage() {
 
     <button type="submit">Submit</button>
     </form>
-
-    <Link to="/user" >
-      <button className="back-btn-newtrial">Back To Main Menu</button>
-    </Link>
     </div>
   )
 }
