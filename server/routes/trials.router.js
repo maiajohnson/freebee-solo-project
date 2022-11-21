@@ -119,22 +119,34 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.post("/sms", (req,res) => {
-  const username = req.user.username;
-  const phoneNum = req.user.phoneNum;
+// router.post("/sms", (req,res) => {
+//   const username = req.user.username;
+//   const phoneNum = req.user.phoneNum;
   
-  const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  const authToken = process.env.TWILIO_AUTH_TOKEN;
-  const client = require('twilio')(accountSid, authToken);
+//   const accountSid = process.env.TWILIO_ACCOUNT_SID;
+//   const authToken = process.env.TWILIO_AUTH_TOKEN;
+//   const client = require('twilio')(accountSid, authToken);
   
-  client.messages
-    .create({
-       body: `Hello ${username}!`,
-       from: '+15139514646',
-       to: `+${phoneNum}`
-     })
-    .then(message => console.log(message.sid));
+//   client.messages
+//     .create({
+//        body: `Hello ${username}!`,
+//        from: '+15139514646',
+//        to: `+${phoneNum}`
+//      })
+//     .then(message => console.log(message.sid));
   
-})
+// })
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
+client.messages
+  .create({
+     body: 'This is an alert',
+     from: '+15139514646',
+     to: '+19528184985'
+   })
+  .then(message => console.log(message.sid));
 
 module.exports = router;

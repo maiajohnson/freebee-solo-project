@@ -56,7 +56,7 @@ function* saveTrial(action) {
 }
 
 function* addTexts(action) {
-
+console.log('this is the action payload', action.payload)
     try {
         yield axios.post('/api/trials/sms', {data: action.payload})
 

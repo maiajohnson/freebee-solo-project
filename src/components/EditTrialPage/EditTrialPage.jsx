@@ -65,23 +65,23 @@ function EditTrialPage() {
                 checked={trial.one_week_before}
                 onChange={(evt) => dispatch({
                     type: 'UPDATE_EDIT_TRIAL',
-                    payload: { one_week_before: evt.target.value }
+                    payload: { one_week_before: evt.target.checked }
                 })}
             />
               <input
                 type="checkbox"
-                value={trial.three_days_before}
+                checked={trial.three_days_before}
                 onChange={(evt) => dispatch({
                     type: 'UPDATE_EDIT_TRIAL',
-                    payload: { three_days_before: evt.target.value }
+                    payload: { three_days_before: evt.target.checked }
                 })}
             />
               <input
                 type="checkbox"
-                value={trial.one_day_before}
+                checked={trial.one_day_before}
                 onChange={(evt) => dispatch({
                     type: 'UPDATE_EDIT_TRIAL',
-                    payload: { one_day_before: evt.target.value }
+                    payload: { one_day_before: evt.target.checked }
                 })}
             />
 
