@@ -119,34 +119,38 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-// router.post("/sms", (req,res) => {
-//   const username = req.user.username;
-//   const phoneNum = req.user.phoneNum;
+router.post("/sms", (req,res) => {
+  console.log('im in sms post');
   
-//   const accountSid = process.env.TWILIO_ACCOUNT_SID;
-//   const authToken = process.env.TWILIO_AUTH_TOKEN;
-//   const client = require('twilio')(accountSid, authToken);
+  const username = req.user.username;
+  const phoneNum = req.user.phone_num;
+  console.log(phoneNum);
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const client = require('twilio')(accountSid, authToken);
   
-//   client.messages
-//     .create({
-//        body: `Hello ${username}!`,
-//        from: '+15139514646',
-//        to: `+${phoneNum}`
-//      })
-//     .then(message => console.log(message.sid));
+  client.messages
+    .create({
+       body: `Hello ${username}!`,
+       from: '+15139514646',
+       to: `+1${phoneNum}`
+     })
+    .then(message => {
+      res.send(message.body)
+    });
   
-// })
+})
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
 
-client.messages
-  .create({
-     body: 'This is a third alert',
-     from: '+15139514646',
-     to: '+19528184985'
-   })
-  .then(message => console.log(message.sid));
+// client.messages
+//   .create({
+//      body: 'This is another alert',
+//      from: '+15139514646',
+//      to: '+19185109383'
+//    })
+//   .then(message => console.log(message.body));
 
 module.exports = router;

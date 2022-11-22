@@ -58,11 +58,8 @@ function* saveTrial(action) {
 function* addTexts(action) {
 console.log('this is the action payload', action.payload)
     try {
-        yield axios.post('/api/trials/sms', {data: action.payload})
+        yield axios.post('/api/trials/sms', action.payload)
 
-        yield put({
-            type: "FETCH_TEXTS",
-        })
     } catch (err) {
         console.log('error getting texts', err);
     }

@@ -11,8 +11,8 @@ function UserPage() {
 
   useEffect(() => {
     dispatch({
-      type: "ADD_TEXT",
-      // payload: message.body
+      type: "ADD_TEXTS",
+      payload: 'hello'
     })
   }, []);
 
