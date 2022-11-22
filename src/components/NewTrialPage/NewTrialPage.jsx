@@ -106,7 +106,10 @@ function NewTrialPage() {
     <input
       onChange={addCost}
       placeholder="Cost"
-      type="text" />
+      type="number"
+      min="0"
+      step="any"
+    />
     </div>
     
     <div>

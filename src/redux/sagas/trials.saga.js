@@ -60,6 +60,7 @@ console.log('this is the action payload', action.payload)
     try {
         yield axios.post('/api/trials/sms', action.payload)
 
+        yield put({ type: "FETCH_TRIALS" })
     } catch (err) {
         console.log('error getting texts', err);
     }

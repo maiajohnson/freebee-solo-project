@@ -7,12 +7,13 @@ import {useSelector, useDispatch} from 'react-redux';
 function UserPage() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const trials = useSelector((store) => store.trials)
   console.log(user);
 
   useEffect(() => {
     dispatch({
       type: "ADD_TEXTS",
-      payload: 'hello'
+      payload: trials
     })
   }, []);
 

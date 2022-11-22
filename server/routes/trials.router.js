@@ -119,38 +119,89 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.post("/sms", (req,res) => {
-  console.log('im in sms post');
-  
+// Function to send SMS messages
+function checkTrials(req, res) {
+  console.log('in checktrials');
+
+  const sqlText = `SELECT * FROM "trial_list";`;
+
+  pool.query(sqlText)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch(err => {
+      console.log("error getting db info for texts", err);
+    })
   const username = req.user.username;
   const phoneNum = req.user.phone_num;
-  console.log(phoneNum);
+  const DAY = 1000 * 60 * 60 * 24;
+  
+  console.log('reqbody', req.body);
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = require('twilio')(accountSid, authToken);
   
-  client.messages
-    .create({
-       body: `Hello ${username}!`,
-       from: '+15139514646',
-       to: `+1${phoneNum}`
-     })
-    .then(message => {
-      res.send(message.body)
-    });
+  for (let i = 0; i < req.body.length; i++) {
+    let howLongUntilExpiration = req.body.expiration_date - new Date();
+    console.log('in trial loop')
+    if (req.body.one_week_before && howLongUntilExpiration <= DAY * 7) {
+      client.messages
+      .create({
+         body: `Hello ${username}, your trial: ${req.body.name} expires in one week`,
+         from: '+15139514646',
+         to: `+1${phoneNum}`
+       })
+      .then(message => {
+        console.log(message.body)
+      });
+    
+  } else if (req.body.three_days_before && howLongUntilExpiration <= DAY * 3) {
+    client.messages
+      .create({
+         body: `Hello ${username}, your ${req.body.name} expires in 3 days`,
+         from: '+15139514646',
+         to: `+1${phoneNum}`
+       })
+      .then(message => {
+        console.log(message.body)
+      });
+  } else if (req.body.one_day_before && howLongUntilExpiration <= DAY) {
+    client.messages
+      .create({
+         body: `Hello ${username}, your ${req.body.name} expires tomorrow`,
+         from: '+15139514646',
+         to: `+1${phoneNum}`
+       })
+      .then(message => {
+        console.log(message.body)
+      });
+  } else {
+    client.messages
+      .create({
+         body: `Hello ${username}, you have no trials`,
+         from: '+15139514646',
+         to: `+1${phoneNum}`
+       })
+      .then(message => {
+        console.log(message.body)
+      })
+  }
+    }
   
+  }
+
+// POST request to send SMS messages
+router.post("/sms", (req,res) => {
+  console.log('im in sms post', req.body);
+  
+  checkTrials(req, res);
+
 })
+  
 
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = require('twilio')(accountSid, authToken);
+// setInterval(() => {
+//   checkTrials();
+// }, 1000 * 60 * 60 * 24);
 
-// client.messages
-//   .create({
-//      body: 'This is another alert',
-//      from: '+15139514646',
-//      to: '+19185109383'
-//    })
-//   .then(message => console.log(message.body));
 
 module.exports = router;
