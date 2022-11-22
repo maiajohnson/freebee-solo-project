@@ -66,12 +66,19 @@ console.log('this is the action payload', action.payload)
     }
 }
 
-// function* fetchPastTrials() {
+function* fetchPastTrials() {
 
-//     try {
-
-//     }
-// }
+    try {
+        const response = yield axios.get('/api/past');
+        yield put({
+            type: "SET_PAST_TRIALS",
+            payload: response.data
+        })
+        console.log('the past trials are', response)
+    } catch (err) {
+        console.log('get past trials error', err);
+    }
+}
 
 function* trialsSaga() {
     yield takeLatest('FETCH_TRIALS', fetchTrials);
@@ -80,6 +87,7 @@ function* trialsSaga() {
     yield takeLatest("FETCH_EDIT_TRIAL", fetchEditTrial);
     yield takeLatest("SAVE_TRIAL", saveTrial);
     yield takeLatest("ADD_TEXTS", addTexts);
+    yield takeLatest("FETCH_PAST_TRIALS", fetchPastTrials);
 }
 
 export default trialsSaga;

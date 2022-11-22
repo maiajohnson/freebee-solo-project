@@ -186,9 +186,9 @@ async function checkTrials(req, res) {
   
   }
 
-setInterval(() => {
-  checkTrials();
-}, 1000 * 60 * 60 * 24);
+// setInterval(() => {
+//   checkTrials();
+// }, 1000 * 60 * 60 * 24);
 
 // POST request to send SMS messages
 router.post("/sms", (req,res) => {
@@ -198,17 +198,4 @@ router.post("/sms", (req,res) => {
 
 })
 
-// GET request for past trials
-router.get('/past', (req,res) => {
-  const sqlText = `SELECT * FROM "history;`;
-
-  pool.query(sqlText)
-  .then((dbRes) => {
-    res.send(dbRes.rows);
-  })
-  .catch((err) => {
-    console.log('error getting db info', err);
-  })
-
-})
 module.exports = router;

@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import trials from "./trials.reducer";
 import editTrials from "./edit.trials.reducer";
+import pastTrials from './past.trials.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   trials, // fetch trials from database
   editTrials, //fetch specific trial to edit from trial page
+  pastTrials, // fetch deleted trials to show on history page
 });
 
 export default rootReducer;

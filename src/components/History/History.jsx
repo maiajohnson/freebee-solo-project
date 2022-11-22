@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 function History() {
   const dispatch = useDispatch();
-  const trialHistory = useSelector(store => store.trials)
+  const trialHistory = useSelector(store => store.pastTrials)
   console.log('the trial history is:', trialHistory);
 
   useEffect(() => {
     dispatch({
-      type: "FETCH_TRIALS",
+      type: "FETCH_PAST_TRIALS",
     })
   }, [])
 
