@@ -20,4 +20,5 @@ CREATE TABLE "trial_list" (
     "one_week_before" BOOLEAN DEFAULT FALSE,
     "three_days_before" BOOLEAN DEFAULT FALSE,
     "one_day_before" BOOLEAN DEFAULT FALSE
+    "history" BOOLEAN DEFAULT FALSE
 );
