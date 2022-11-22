@@ -22,6 +22,7 @@ import './App.css';
 import TrialList from '../TrialList/TrialList';
 import NewTrialPage from '../NewTrialPage/NewTrialPage';
 import EditTrialPage from '../EditTrialPage/EditTrialPage';
+import History from '../History/History';
 
 function App() {
   const dispatch = useDispatch();
@@ -128,6 +129,13 @@ function App() {
             path="/trials/:id/edit"
           >
             <EditTrialPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/history"
+          >
+            <History />
           </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

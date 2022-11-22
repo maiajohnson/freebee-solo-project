@@ -144,6 +144,9 @@ function checkTrials(req, res) {
   for (let i = 0; i < req.body.length; i++) {
     let howLongUntilExpiration = req.body.expiration_date - new Date();
     console.log('in trial loop')
+    console.log('req.body', req.body)
+    console.log('expiration date', req.body.expiration_date)
+    console.log('oneweekbefore', req.body.one_week_before)
     if (req.body.one_week_before && howLongUntilExpiration <= DAY * 7) {
       client.messages
       .create({
@@ -176,15 +179,7 @@ function checkTrials(req, res) {
         console.log(message.body)
       });
   } else {
-    client.messages
-      .create({
-         body: `Hello ${username}, you have no trials`,
-         from: '+15139514646',
-         to: `+1${phoneNum}`
-       })
-      .then(message => {
-        console.log(message.body)
-      })
+    console.log("there are no alerts");
   }
     }
   
