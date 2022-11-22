@@ -6,7 +6,7 @@ function* fetchTrials() {
 
     try {
         const response = yield axios.get('/api/trials');
-
+        console.log('get data', response);
         yield put({
             type: "SET_TRIAL",
             payload: response.data,
@@ -65,6 +65,13 @@ console.log('this is the action payload', action.payload)
         console.log('error getting texts', err);
     }
 }
+
+// function* fetchPastTrials() {
+
+//     try {
+
+//     }
+// }
 
 function* trialsSaga() {
     yield takeLatest('FETCH_TRIALS', fetchTrials);

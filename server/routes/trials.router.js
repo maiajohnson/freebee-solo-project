@@ -126,37 +126,32 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // Function to send SMS messages
-function checkTrials(req, res) {
+async function checkTrials(req, res) {
   console.log('in checktrials');
 
-  const sqlText = `SELECT * FROM "trial_list";`;
+  const sqlText = `SELECT * FROM "trial_list" WHERE user_id=$1;`;
+  const sqlParams = [req.user.id];
 
-  pool.query(sqlText)
-    .then((dbRes) => {
-      res.send(dbRes.rows);
-    })
-    .catch(err => {
-      console.log("error getting db info for texts", err);
-    })
+  const dbRes = await pool.query(sqlText, sqlParams);
+  res.send(dbRes.rows);
+
+  const trials = dbRes.rows;
   const username = req.user.username;
   const phoneNum = req.user.phone_num;
   const DAY = 1000 * 60 * 60 * 24;
   
-  console.log('reqbody', req.body);
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = require('twilio')(accountSid, authToken);
   
-  for (let i = 0; i < req.body.length; i++) {
-    let howLongUntilExpiration = req.body.expiration_date - new Date();
+  for (let i = 0; i < trials.length; i++) {
+    let howLongUntilExpiration = new Date(trials[i].expiration_date) - new Date();
     console.log('in trial loop')
-    console.log('req.body', req.body)
-    console.log('expiration date', req.body.expiration_date)
-    console.log('oneweekbefore', req.body.one_week_before)
-    if (req.body.one_week_before && howLongUntilExpiration <= DAY * 7) {
+
+    if (trials[i].one_week_before && howLongUntilExpiration <= DAY * 7) {
       client.messages
       .create({
-         body: `Hello ${username}, your trial: ${req.body.name} expires in one week`,
+         body: `Hello ${username}, your trial: ${trials[i].name} expires in one week`,
          from: '+15139514646',
          to: `+1${phoneNum}`
        })
@@ -164,20 +159,20 @@ function checkTrials(req, res) {
         console.log(message.body)
       });
     
-  } else if (req.body.three_days_before && howLongUntilExpiration <= DAY * 3) {
+  } else if (trials[i].three_days_before && howLongUntilExpiration <= DAY * 3) {
     client.messages
       .create({
-         body: `Hello ${username}, your ${req.body.name} expires in 3 days`,
+         body: `Hello ${username}, your ${trials[i].name} expires in 3 days`,
          from: '+15139514646',
          to: `+1${phoneNum}`
        })
       .then(message => {
         console.log(message.body)
       });
-  } else if (req.body.one_day_before && howLongUntilExpiration <= DAY) {
+  } else if (trials[i].one_day_before && howLongUntilExpiration <= DAY) {
     client.messages
       .create({
-         body: `Hello ${username}, your ${req.body.name} expires tomorrow`,
+         body: `Hello ${username}, your ${trials[i].name} expires tomorrow`,
          from: '+15139514646',
          to: `+1${phoneNum}`
        })
@@ -191,6 +186,10 @@ function checkTrials(req, res) {
   
   }
 
+setInterval(() => {
+  checkTrials();
+}, 1000 * 60 * 60 * 24);
+
 // POST request to send SMS messages
 router.post("/sms", (req,res) => {
   console.log('im in sms post', req.body);
@@ -198,11 +197,18 @@ router.post("/sms", (req,res) => {
   checkTrials(req, res);
 
 })
-  
 
-// setInterval(() => {
-//   checkTrials();
-// }, 1000 * 60 * 60 * 24);
+// GET request for past trials
+router.get('/past', (req,res) => {
+  const sqlText = `SELECT * FROM "history;`;
 
+  pool.query(sqlText)
+  .then((dbRes) => {
+    res.send(dbRes.rows);
+  })
+  .catch((err) => {
+    console.log('error getting db info', err);
+  })
 
+})
 module.exports = router;
