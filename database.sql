@@ -20,5 +20,16 @@ CREATE TABLE "trial_list" (
     "one_week_before" BOOLEAN DEFAULT FALSE,
     "three_days_before" BOOLEAN DEFAULT FALSE,
     "one_day_before" BOOLEAN DEFAULT FALSE
-    "history" BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE "history" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (255),
+    "cost" INT,
+    "expiration_date" DATE,
+    "username" VARCHAR (255),
+    "user_id" INT REFERENCES "user"("id"),
+    "one_week_before" BOOLEAN DEFAULT FALSE,
+    "three_days_before" BOOLEAN DEFAULT FALSE,
+    "one_day_before" BOOLEAN DEFAULT FALSE
 );
