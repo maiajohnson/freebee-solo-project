@@ -1,0 +1,29 @@
+.edit-nav {
+    background-color: #fcea4a;
+}
+
+.edit-header {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.edit-submit {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #fcea4a;
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+.back-btn-edittrial {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #FFF9C1;
+    font-family: "Lucida Console", Courier, monospace;
+    margin-top: 60px;
+    margin-left: 100px;
+  }
+  

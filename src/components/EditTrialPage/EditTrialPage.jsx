@@ -2,7 +2,7 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import dateFormat from "dateformat";
-
+import './EditTrialPage.css'
 
 function EditTrialPage() {
     const dispatch = useDispatch();
@@ -31,6 +31,9 @@ function EditTrialPage() {
 
     return (
         <div>
+            <div className="edit-nav">
+                <h1 className="edit-header">Edit Trial</h1>   
+            </div>
             <form className="container" onSubmit={onSubmit}>
                 <div>
                 <label>
@@ -122,7 +125,7 @@ function EditTrialPage() {
                 </div>
 
                 </div>
-                <button className="back-btn" type="submit">Submit</button>
+                <button className="edit-submit" type="submit">Submit</button>
             </form>
 
             <Link to="/trials">
