@@ -30,9 +30,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('this is the db info', req.body);
 
   const sqlText = `INSERT INTO "trial_list"
-                    ("name", "cost", "expiration_date", "username", "user_id", "one_week_before", "three_days_before", "one_day_before")
+                    ("name", "cost", "expiration_date", "username", "user_id", "one_week_before", "three_days_before", "one_day_before", "link")
                   VALUES
-                    ($1, $2, $3, $4, $5, $6, $7, $8);`;
+                    ($1, $2, $3, $4, $5, $6, $7, $8, $9);`;
 
   const sqlParams = [
     req.body.data.name,
@@ -42,7 +42,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     req.user.id,
     req.body.data.one_week_before,
     req.body.data.three_days_before,
-    req.body.data.one_day_before
+    req.body.data.one_day_before,
+    req.body.data.link
   ]
   console.log('sql params are: ', sqlParams);
 
@@ -80,8 +81,8 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   const sqlText = `
     UPDATE "trial_list"
-    SET "name" = $1, "cost" = $2, "expiration_date" = $3, "username" = $4, "one_week_before" = $5, "three_days_before" = $6, "one_day_before" = $7
-    WHERE id = $8`;
+    SET "name" = $1, "cost" = $2, "expiration_date" = $3, "username" = $4, "one_week_before" = $5, "three_days_before" = $6, "one_day_before" = $7, "link" = $8
+    WHERE id = $9`;
 
     const sqlParams = [
       req.body.name,
@@ -91,6 +92,7 @@ router.put('/:id', (req, res) => {
       req.body.one_week_before,
       req.body.three_days_before,
       req.body.one_day_before,
+      req.body.link,
       req.params.id
     ]
 
@@ -190,9 +192,9 @@ async function checkTrials(req, res) {
   
   }
 
-setInterval(() => {
-  checkTrials();
-}, 1000 * 60 * 60);
+// setInterval(() => {
+//   checkTrials();
+// }, 1000 * 20);
 
 // POST request to send SMS messages
 router.post("/sms", (req,res) => {

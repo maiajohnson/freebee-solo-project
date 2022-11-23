@@ -19,7 +19,8 @@ CREATE TABLE "trial_list" (
     "user_id" INT REFERENCES "user"("id"),
     "one_week_before" BOOLEAN DEFAULT FALSE,
     "three_days_before" BOOLEAN DEFAULT FALSE,
-    "one_day_before" BOOLEAN DEFAULT FALSE
+    "one_day_before" BOOLEAN DEFAULT FALSE,
+    "link" VARCHAR (255)
 );
 
 CREATE TABLE "history" (
@@ -31,5 +32,6 @@ CREATE TABLE "history" (
     "user_id" INT REFERENCES "user"("id"),
     "one_week_before" BOOLEAN DEFAULT FALSE,
     "three_days_before" BOOLEAN DEFAULT FALSE,
-    "one_day_before" BOOLEAN DEFAULT FALSE
+    "one_day_before" BOOLEAN DEFAULT FALSE,
+    "link" VARCHAR (255)
 );

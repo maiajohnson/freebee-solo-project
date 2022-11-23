@@ -14,18 +14,21 @@ function TrialList() {
     console.log('in delete item function onclick')
     swal({
       title: "Are you sure?",
-      text: "Are you sure that you want to delete this?",
+      text: "Once deleted, you will not be able to recover this trial information.",
       icon: "warning",
+      buttons: true,
       dangerMode: true,
     })
     .then((willDelete) => {
       if(willDelete) {
         swal("Deleted!", "Your trial has been deleted!", "success");
-      }
+      
       dispatch({
         type: "DELETE_TRIAL",
         payload: id,
-      })
+      })} else {
+        swal("Your trial is safe!")
+      }
     })
    
   }
@@ -50,8 +53,15 @@ function TrialList() {
             </tr>
             <tr>
               <td>Username: {trial.username}</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
+              <td>Link: 
+                <a href={trial.link}>
+                  {trial.name}
+                </a>
+              </td>
+            </tr>
+            <tr>
               <td>
                 <Link to={`/trials/${trial.id}/edit`}>
                   <button className="edit-btn">EDIT</button>

@@ -13,7 +13,8 @@ function NewTrialPage() {
     username: "",
     one_week_before: false,
     three_days_before: false,
-    one_day_before: false
+    one_day_before: false,
+    link: ""
   })
 
   function changeWeek(evt) {
@@ -72,7 +73,13 @@ function NewTrialPage() {
     });
   }
 
-
+  function addLink(evt) {
+    evt.preventDefault();
+    setNewTrial({
+      ...newTrial,
+      link: evt.target.value,
+    })
+  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -131,6 +138,16 @@ function NewTrialPage() {
       onChange={addUsername}
       placeholder="Username"
       type="text" />
+    </div>
+
+    <div>
+      <label>
+        Link:
+      </label>
+      <input
+        onChange={addLink}
+        placeholder="URL"
+        type="url" />
     </div>
 
     <div className="alert-label">
