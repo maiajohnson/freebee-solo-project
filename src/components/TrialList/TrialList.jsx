@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import dateFormat from "dateformat";
 import { Link } from 'react-router-dom';
+import './TrialList.css'
 
 function TrialList() {
   const dispatch = useDispatch();
@@ -17,8 +18,11 @@ function TrialList() {
   }
 
     return (
-     <div className="container">
-      <h1 className="trial-title">Trial List</h1>
+      <div>
+      <div>
+        <h1 className="trial-title">Trial List</h1>
+      </div>
+      <div className="list-container">
       <table className="trial-table">
         {trialList.map(trial => (
           <tbody  key={trial.name}>
@@ -47,9 +51,10 @@ function TrialList() {
           </tbody>
         ))}
       </table>
-      <footer>
+     </div>
+     <footer>
         <Link to="/user">
-          <button className="back-btn">Back To Main Menu</button>
+          <button className="list-back-btn">Back To Main Menu</button>
         </Link>
       </footer>
      </div>

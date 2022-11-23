@@ -144,45 +144,45 @@ async function checkTrials(req, res) {
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = require('twilio')(accountSid, authToken);
   
-  for (let i = 0; i < trials.length; i++) {
-    let howLongUntilExpiration = new Date(trials[i].expiration_date) - new Date();
-    console.log('in trial loop')
+  // for (let i = 0; i < trials.length; i++) {
+  //   let howLongUntilExpiration = new Date(trials[i].expiration_date) - new Date();
+  //   console.log('in trial loop')
 
-    if (trials[i].one_week_before && howLongUntilExpiration <= DAY * 7) {
-      client.messages
-      .create({
-         body: `Hello ${username}, your trial: ${trials[i].name} expires in one week`,
-         from: '+15139514646',
-         to: `+1${phoneNum}`
-       })
-      .then(message => {
-        console.log(message.body)
-      });
+  //   if (trials[i].one_week_before && howLongUntilExpiration <= DAY * 7) {
+  //     client.messages
+  //     .create({
+  //        body: `Hello ${username}, your trial: ${trials[i].name} expires in one week`,
+  //        from: '+15139514646',
+  //        to: `+1${phoneNum}`
+  //      })
+  //     .then(message => {
+  //       console.log(message.body)
+  //     });
     
-  } else if (trials[i].three_days_before && howLongUntilExpiration <= DAY * 3) {
-    client.messages
-      .create({
-         body: `Hello ${username}, your trial: ${trials[i].name} expires in 3 days`,
-         from: '+15139514646',
-         to: `+1${phoneNum}`
-       })
-      .then(message => {
-        console.log(message.body)
-      });
-  } else if (trials[i].one_day_before && howLongUntilExpiration <= DAY) {
-    client.messages
-      .create({
-         body: `Hello ${username}, your trial: ${trials[i].name} expires tomorrow`,
-         from: '+15139514646',
-         to: `+1${phoneNum}`
-       })
-      .then(message => {
-        console.log(message.body)
-      });
-  } else {
-    console.log("there are no alerts");
-  }
-    }
+  // } else if (trials[i].three_days_before && howLongUntilExpiration <= DAY * 3) {
+  //   client.messages
+  //     .create({
+  //        body: `Hello ${username}, your trial: ${trials[i].name} expires in 3 days`,
+  //        from: '+15139514646',
+  //        to: `+1${phoneNum}`
+  //      })
+  //     .then(message => {
+  //       console.log(message.body)
+  //     });
+  // } else if (trials[i].one_day_before && howLongUntilExpiration <= DAY) {
+  //   client.messages
+  //     .create({
+  //        body: `Hello ${username}, your trial: ${trials[i].name} expires tomorrow`,
+  //        from: '+15139514646',
+  //        to: `+1${phoneNum}`
+  //      })
+  //     .then(message => {
+  //       console.log(message.body)
+  //     });
+  // } else {
+  //   console.log("there are no alerts");
+  // }
+  //   }
   
   }
 

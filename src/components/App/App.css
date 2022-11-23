@@ -218,46 +218,6 @@ Main Page
 }
 
 /* -------------------------------------------------------------------
-Trial List Page
---------------------------------------------------------------------*/
-.trial-title {
-  margin-left: 50px;
-}
-table, tr {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 10px;
-}
-
-.back-btn {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: #FCEA4A;
-  font-family: "Lucida Console", Courier, monospace;
-}
-
-.edit-btn {
-  background-color: #fcea4a;
-  color: #000000;
-  padding: 5px 30px;
-  border-radius: 20px;
-  border: 0;
-  font-weight: 500;
-}
-
-.del-btn {
-  border: 0;
-  background-color: #c60000;
-  color: #f8f8f8cb;
-  padding: 5px 20px;
-  border-radius: 20px;
-  font-weight: 500;
-}
-
-/* -------------------------------------------------------------------
 New Trial Page
 --------------------------------------------------------------------*/
 
