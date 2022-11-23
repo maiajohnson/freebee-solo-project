@@ -190,6 +190,7 @@ Main Page
 
 .welcome-banner {
   text-align: center;
+  font-weight: 100;
 }
 
 .main-btns {
@@ -202,6 +203,7 @@ Main Page
   padding: 15px;
   width: 190px;
   font-family: "Lucida Console", Courier, monospace;
+  border-radius: 10px;
 }
 
 

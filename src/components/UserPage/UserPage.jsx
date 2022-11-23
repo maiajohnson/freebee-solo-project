@@ -19,7 +19,7 @@ function UserPage() {
 
   return (
     <div className="container">
-      <h2 className='welcome-banner'>WELCOME {user.username}!</h2>
+      <h2 className='welcome-banner'>HELLO {user.username}!</h2>
       <Link to="/addtrial">
         <button className='main-btns'>NEW TRIAL</button>
       </Link>
