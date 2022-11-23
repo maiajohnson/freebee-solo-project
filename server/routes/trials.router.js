@@ -162,7 +162,7 @@ async function checkTrials(req, res) {
   } else if (trials[i].three_days_before && howLongUntilExpiration <= DAY * 3) {
     client.messages
       .create({
-         body: `Hello ${username}, your ${trials[i].name} expires in 3 days`,
+         body: `Hello ${username}, your trial: ${trials[i].name} expires in 3 days`,
          from: '+15139514646',
          to: `+1${phoneNum}`
        })
@@ -172,7 +172,7 @@ async function checkTrials(req, res) {
   } else if (trials[i].one_day_before && howLongUntilExpiration <= DAY) {
     client.messages
       .create({
-         body: `Hello ${username}, your ${trials[i].name} expires tomorrow`,
+         body: `Hello ${username}, your trial: ${trials[i].name} expires tomorrow`,
          from: '+15139514646',
          to: `+1${phoneNum}`
        })
@@ -186,9 +186,9 @@ async function checkTrials(req, res) {
   
   }
 
-// setInterval(() => {
-//   checkTrials();
-// }, 1000 * 60 * 60 * 24);
+setInterval(() => {
+  checkTrials();
+}, 1000 * 60 * 60);
 
 // POST request to send SMS messages
 router.post("/sms", (req,res) => {

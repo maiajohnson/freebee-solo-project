@@ -8,12 +8,6 @@ function TrialList() {
   const trialList = useSelector(store => store.trials);
   console.log('trials are', trialList);
 
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_TRIALS",
-    })
-  }, []);
-
   const deleteTrial = (id) => {
     console.log('in delete item function onclick')
     dispatch({

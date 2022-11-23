@@ -19,7 +19,7 @@ function History() {
         <h3>Detailed below is a list of past usernames used when signing up for trial services</h3>
         <table className="trial-table">
           {trialHistory.map(trial => (
-            <tbody key={trial.name}>
+            <tbody key={trial.id}>
               <tr>
                 <th>Trial: {trial.name}</th>
               </tr>
