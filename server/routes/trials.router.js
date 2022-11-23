@@ -171,6 +171,7 @@ async function checkTrials(req, res) {
       .then(message => {
         console.log(message.body)
       });
+
   } else if (trials[i].one_day_before && howLongUntilExpiration <= DAY) {
     client.messages
       .create({
@@ -181,6 +182,7 @@ async function checkTrials(req, res) {
       .then(message => {
         console.log(message.body)
       });
+      
   } else {
     console.log("there are no alerts");
   }

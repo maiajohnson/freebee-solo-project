@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import dateFormat from "dateformat";
 import { Link } from 'react-router-dom';
-import './TrialList.css'
+import './TrialList.css';
+import swal from 'sweetalert';
 
 function TrialList() {
   const dispatch = useDispatch();
@@ -11,10 +12,22 @@ function TrialList() {
 
   const deleteTrial = (id) => {
     console.log('in delete item function onclick')
-    dispatch({
-      type: "DELETE_TRIAL",
-      payload: id,
+    swal({
+      title: "Are you sure?",
+      text: "Are you sure that you want to delete this?",
+      icon: "warning",
+      dangerMode: true,
     })
+    .then((willDelete) => {
+      if(willDelete) {
+        swal("Deleted!", "Your trial has been deleted!", "success");
+      }
+      dispatch({
+        type: "DELETE_TRIAL",
+        payload: id,
+      })
+    })
+   
   }
 
     return (
