@@ -1,0 +1,37 @@
+.title {
+    font-size: 60px;
+    font-weight:300;
+    color: black;
+    padding-top: 20px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  /* This line makes the "Register" and "Login" buttons look like links */
+.btn_asLink {
+    display: inline-block;
+    border-color: black;
+    padding: 10px 26px;
+    border-width: 1px 1px 3px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: #FFF9C1;
+    font: inherit;
+    color: black;
+  }
+  
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border-color: black;
+    border-width: 1px 1px 3px;
+    border-radius: 20px;
+    background-color: black;
+    color: #f8f8f8;
+    font-size: 1.1rem;
+    outline: 0;
+    cursor: pointer;
+    margin-left: 105px;
+  }

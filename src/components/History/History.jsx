@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import './History.css';
 
 function History() {
   const dispatch = useDispatch();
@@ -14,9 +15,12 @@ function History() {
   }, [])
 
     return (
-      <div className="container">
-        <h1>History</h1>
-        <h3>Detailed below is a list of past usernames used when signing up for trial services</h3>
+      <>
+      <div>
+        <h1 className="history-title">History</h1>
+        <h3 className="history-text">Detailed below is a list of past usernames used when signing up for trial services</h3>
+      </div>
+      <div className="history-container">
         <table className="past-table">
           {trialHistory.map(trial => (
             <tbody key={trial.id}>
@@ -38,6 +42,7 @@ function History() {
           </Link>
         </footer>
       </div>
+      </>
     )
 }
 

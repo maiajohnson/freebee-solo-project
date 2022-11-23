@@ -2,18 +2,21 @@ import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import './LoginPage.css'
 
 function LoginPage() {
   const history = useHistory();
 
   return (
     <div>
+    <h1 className='title'>FREEBEE</h1>
+    <div>
       <LoginForm />
 
       <center>
         <button
           type="button"
-          className="btn btn_asLink"
+          className="reg_btn"
           onClick={() => {
             history.push('/registration');
           }}
@@ -23,6 +26,7 @@ function LoginPage() {
       </center>
 
       <Footer />
+    </div>
     </div>
   );
 }

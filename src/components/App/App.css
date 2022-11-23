@@ -83,7 +83,8 @@ Button
   border-color: black;
   padding: 10px 26px;
   border-width: 1px 1px 3px;
-  margin-left: 15px;
+  margin-left: 35px;
+  margin-right: 27px;
   border-radius: 20px;
   background-color: #FFF9C1;
   font: inherit;
@@ -120,6 +121,7 @@ Form Treatment
   width: 400px;
   max-width: 100%;
   padding: 25px;
+  padding-bottom: 15px;
   margin: 0 auto 0px;
   background-color: #FCEA4A;
   border-radius: 3px;
@@ -153,7 +155,7 @@ input {
   padding: 15px 20px;
   background-color: #FFF9C1;
   margin-left: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .phoneNum {

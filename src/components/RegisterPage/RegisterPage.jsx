@@ -2,11 +2,14 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
+import './RegisterPage.css'
 
 function RegisterPage() {
   const history = useHistory();
 
   return (
+    <div>
+      <h1 className='title'>FREEBEE</h1>
     <div>
       <RegisterForm />
 
@@ -23,6 +26,7 @@ function RegisterPage() {
       </center>
 
       <Footer />
+    </div>
     </div>
   );
 }
