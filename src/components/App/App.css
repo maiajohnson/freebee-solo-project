@@ -197,7 +197,8 @@ Main Page
   align-items: center;  
   margin: 30px auto;
   background-color: #FCEA4A;
-  padding: 15px 50px;
+  padding: 15px;
+  width: 190px;
   font-family: "Lucida Console", Courier, monospace;
 }
 
@@ -213,7 +214,7 @@ Main Page
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
-  margin-left: 105px;
+  margin-left: 110px;
 }
 
 /* -------------------------------------------------------------------
