@@ -85,7 +85,7 @@ function NewTrialPage() {
 
   return (
     <div>
-    <h1>Add Trial</h1>
+    <h1 className="add-trial-text">Add Trial</h1>
 
     <form className="container-addtrial" onSubmit={handleSubmit}>
 
@@ -132,7 +132,7 @@ function NewTrialPage() {
       type="text" />
     </div>
 
-    <div>
+    <div className="alert-label">
     <label>
       Alerts:
     </label>
@@ -150,8 +150,10 @@ function NewTrialPage() {
       <label htmlFor="1daybefore"><b>1 Day Before</b></label>
     </div>
     </div>
-
+    
+    <div className="submit-new">
     <button className="back-btn" type="submit">Submit</button>
+    </div>
     </form>
 
     <Link to="/user">

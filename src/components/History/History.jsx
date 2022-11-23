@@ -17,7 +17,7 @@ function History() {
       <div className="container">
         <h1>History</h1>
         <h3>Detailed below is a list of past usernames used when signing up for trial services</h3>
-        <table className="trial-table">
+        <table className="past-table">
           {trialHistory.map(trial => (
             <tbody key={trial.id}>
               <tr>
