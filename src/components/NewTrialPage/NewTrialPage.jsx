@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import './NewTrialPage.css';
 
 function NewTrialPage() {
   const dispatch = useDispatch();
@@ -151,8 +152,8 @@ function NewTrialPage() {
     </div>
     </div>
     
-    <div className="submit-new">
-    <button className="back-btn" type="submit">Submit</button>
+    <div>
+    <button className="new-submit" type="submit">Submit</button>
     </div>
     </form>
 
