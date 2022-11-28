@@ -192,9 +192,6 @@ async function checkTrials(req, res) {
   
   }
 
-// setInterval(() => {
-//   checkTrials();
-// }, 1000 * 20);
 
 // POST request to send SMS messages
 router.post("/sms", (req,res) => {
