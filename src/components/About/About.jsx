@@ -1,6 +1,7 @@
 import React from "react";
 import './About.css';
 import QRCode from 'react-qr-code';
+import { Link } from "react-router-dom";
 
 function About() {
     return (
@@ -55,6 +56,11 @@ function About() {
                     </tr>
                 </tbody>
             </table>
+            <div className="about-back-btn">
+                <Link to="/user">
+                <button className="back-btn">Back To Main Menu</button>
+                </Link>
+            </div>
         </div>
         </div>
     )
