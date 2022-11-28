@@ -23,6 +23,7 @@ import TrialList from '../TrialList/TrialList';
 import NewTrialPage from '../NewTrialPage/NewTrialPage';
 import EditTrialPage from '../EditTrialPage/EditTrialPage';
 import History from '../History/History';
+import About from '../About/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -137,6 +138,13 @@ function App() {
             path="/history"
           >
             <History />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/about"
+          >
+            <About />
           </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

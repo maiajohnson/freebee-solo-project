@@ -29,6 +29,9 @@ function UserPage() {
       <Link to="/history">
         <button className='main-btns'>HISTORY</button>
       </Link>
+      <Link to="/about">
+        <button className='main-btns'>ABOUT</button>
+      </Link>
 
       <LogOutButton className="logout-btn" />
       <Footer />

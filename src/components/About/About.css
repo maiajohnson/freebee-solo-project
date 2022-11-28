@@ -1,0 +1,13 @@
+.about-title {
+    text-align: center;
+}
+
+.about-table {
+    border: 0px solid transparent;
+    margin: auto;
+    text-align: center;
+}
+
+.about-td {
+    padding: 20px;
+}
