@@ -91,9 +91,22 @@ function NewTrialPage() {
     history.push('/trials');
   }
 
+  function autofill() {
+    setNewTrial({
+      name: 'Youtube TV',
+      cost: 12,
+      expiration_date: "12/01/22",
+      username: 'maiajohn',
+      link: "https://www.youtube.com",
+      one_week_before: false,
+      three_days_before: true,
+      one_day_before: true,
+    })
+  }
+
   return (
     <div>
-    <h1 className="add-trial-text">Add Trial</h1>
+    <h1 className="add-trial-text" onClick={autofill}>Add Trial</h1>
 
     <form className="container-addtrial" onSubmit={handleSubmit}>
 
