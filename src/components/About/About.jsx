@@ -7,10 +7,10 @@ function About() {
     return (
         <div>
         <div>
-            <h3 className="about-title">
+            <h4 className="about-title">
                 Thank you to the Ramirez cohort and Edan for all your help.
                 And thanks to my family and friends for all their support.
-            </h3>
+            </h4>
         </div>
         <div className="container">
             <h3>Technologies Used:</h3>
